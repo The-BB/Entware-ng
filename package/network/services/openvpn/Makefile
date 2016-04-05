@@ -60,10 +60,10 @@ CONFIG_OPENVPN_NOSSL:=y
 endif
 
 CONFIGURE_VARS += \
-	IFCONFIG=/sbin/ifconfig \
-	ROUTE=/sbin/route \
-	IPROUTE=/usr/sbin/ip \
-	NETSTAT=/bin/netstat
+	IFCONFIG=/opt/sbin/ifconfig \
+	ROUTE=/opt/sbin/route \
+	IPROUTE=/opt/sbin/ip \
+	NETSTAT=/opt/bin/netstat
 
 define Build/Configure
 	$(call Build/Configure/Default, \
