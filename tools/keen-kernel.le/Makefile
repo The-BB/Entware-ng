@@ -15,7 +15,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/ndmsystems/linux-2.6.22-tc.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
-HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/linux-2.6.22-tc
+HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/linux-2.6.22-tc.le
 HOST_UNPACK:=tar -C $(HOST_BUILD_DIR) --strip-components=1 -xf $(DL_DIR)/$(PKG_SOURCE)
 
 include $(INCLUDE_DIR)/host-build.mk
@@ -27,7 +27,7 @@ define Host/Install
 endef
 
 define Host/Clean
-	rm -fr $(BUILD_DIR_HOST)/linux-2.6.22-tc
+	rm -fr $(BUILD_DIR_HOST)/linux-2.6.22-tc.le
 endef
 
 $(eval $(call HostBuild))
