@@ -6,7 +6,7 @@
 #
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=keen-kernel
+PKG_NAME:=keen-kernel.le
 PKG_VERSION:=20160331
 PKG_REV:=47a8ebee9c642b7b8d827ba03a5bc5a3536afde5
 
