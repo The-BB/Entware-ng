@@ -17,3 +17,4 @@
 
 ---
 
+[Использование](https://github.com/Entware-Keenetic/Entware-Keenetic/wiki).
