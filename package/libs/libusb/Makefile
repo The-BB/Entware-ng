@@ -39,7 +39,8 @@ endef
 TARGET_CFLAGS += $(FPIC)
 CONFIGURE_ARGS += \
 	--disable-udev \
-	--disable-log
+	--disable-log \
+	--disable-timerfd
 
 define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
