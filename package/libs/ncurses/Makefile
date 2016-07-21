@@ -6,6 +6,12 @@
 #
 # Upgraded from 5.9. ncurses-bin package added.
 
+# !!! OWRT DIFFERENCE !!!
+# opkg binary segfaults when a real package is replaced by "provided" package.
+# we removed PROVIDES libncurses field in libncursesw and added a real libncurses package that
+# installes symlinks. We've added more symlinks to make binaries from older packages to be compatible with
+# the new libncurses(w) package
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ncurses
@@ -153,6 +159,7 @@ endef
 
 define Package/libncurses/install
 	$(INSTALL_DIR) $(1)/opt/lib
+	ln -s libncurses.so.6.0 $(1)/opt/lib/libcurses.so
 	for lib in ncurses panel menu form; do \
 		ln -s lib$$$${lib}w.so $(1)/opt/lib/lib$$$${lib}.so; \
 		ln -s lib$$$${lib}w.so.6 $(1)/opt/lib/lib$$$${lib}.so.6; \
