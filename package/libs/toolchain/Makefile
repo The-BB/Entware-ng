@@ -8,10 +8,10 @@
 
 include $(TOPDIR)/rules.mk
 PKG_NAME:=toolchain
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 ifeq ($(CONFIG_USE_GLIBC),y)
-        PKG_RELEASE=6
+        PKG_RELEASE=7
 endif
 
 PKG_MAINTAINER:=Felix Fietkau <nbd@openwrt.org>
