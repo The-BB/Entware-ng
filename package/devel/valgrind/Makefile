@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=valgrind
-PKG_VERSION:=3.10.1
+PKG_VERSION:=3.11.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://valgrind.org/downloads/
-PKG_MD5SUM:=60ddae962bc79e7c95cfc4667245707f
+PKG_MD5SUM:=6c396271a8c1ddd5a6fb9abe714ea1e8a86fce85b30ab26b4266aeb4c2413b42
 
 PKG_MAINTAINER:=Felix Fietkau <nbd@nbd.name>
 PKG_LICENSE:=GPL-2.0+
@@ -22,6 +22,7 @@ PKG_FIXUP = autoreconf
 PKG_INSTALL := 1
 PKG_BUILD_PARALLEL := 1
 PKG_USE_MIPS16:=0
+PKG_SSP:=0
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/kernel.mk
@@ -109,7 +110,7 @@ define Package/valgrind/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/valgrind* $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/lib/valgrind
 	$(CP) \
-		./files/default.supp \
+		./files/*.supp \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/none-* \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/vgpreload_core*.so \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/$(CPU)-*.xml \
