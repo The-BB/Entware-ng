@@ -110,7 +110,7 @@ define Package/valgrind/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/valgrind* $(1)/opt/bin/
 	$(INSTALL_DIR) $(1)/opt/lib/valgrind
 	$(CP) \
-		./files/*.supp \
+		./files/default.supp \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/none-* \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/vgpreload_core*.so \
 		$(PKG_INSTALL_DIR)/opt/lib/valgrind/$(CPU)-*.xml \
