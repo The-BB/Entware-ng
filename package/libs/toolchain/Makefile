@@ -8,10 +8,10 @@
 
 include $(TOPDIR)/rules.mk
 PKG_NAME:=toolchain
-PKG_RELEASE:=7
+PKG_RELEASE:=8
 
 ifeq ($(CONFIG_USE_GLIBC),y)
-        PKG_RELEASE=8
+        PKG_RELEASE=9
 endif
 
 PKG_MAINTAINER:=Felix Fietkau <nbd@nbd.name>
