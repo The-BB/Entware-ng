@@ -172,7 +172,8 @@ define Build/InstallDev
 		for lib in ncurses panel menu form; do \
 		ln -s lib$$$${lib}w.so $(1)/opt/lib/lib$$$${lib}.so; \
 	done
-
+#	$(TARGET_CROSS)ar rc $(1)/opt/lib/libtinfo.a
+	$(LN) . $(1)/opt/include/ncursesw
 	$(INSTALL_DIR) $(1)/opt/bin $(2)/bin
 	$(CP) $(PKG_INSTALL_DIR)/opt/bin/ncursesw6-config $(2)/bin/
 	$(SED) 's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_DIR)/opt,g' -e 's/$$$$INCS //g' \
