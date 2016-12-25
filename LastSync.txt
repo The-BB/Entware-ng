@@ -1,8 +1,25 @@
-commit 558b38f4b8e615fb5262c94dad7db2071e394ac1
-Merge: 99ddb65 019be77
-Author: Zoltan Herpai <wigyori@uid0.hu>
-Date:   Mon Jul 25 13:32:53 2016 +0200
+Sync with LEDE
 
-    Merge pull request #38 from qinfengling/orangepi2
+commit 7c47f43fe650309e6a2383c99273dc1bde367bc1
+Author: Hauke Mehrtens <hauke@hauke-m.de>
+Date:   Sun Dec 4 19:03:48 2016 +0100
 
-    sunxi: add support for Orange Pi 2 (H3)
+    lantiq: falcon: remove bootargs-append
+
+trunk/packages
+
+commit fb237477fd1e7801e4877f9fe1ea7bc1ec16dd99
+Author: Felix Fietkau <nbd@nbd.name>
+Date:   Thu Dec 15 13:02:31 2016 +0100
+
+    mt76: update to the latest version, fixes a build error on some platforms
+    
+    Signed-off-by: Felix Fietkau <nbd@nbd.name>
+
+Entware-ng
+
+commit 20313a6c97d344bce19552320fdf7f82fb5c7eac
+Author: Alexander Ryzhov <github@ryzhov-al.ru>
+Date:   Thu Dec 22 15:02:34 2016 +0300
+
+    mipsel toolchain: uClibc-ng: bump to 1.0.17
