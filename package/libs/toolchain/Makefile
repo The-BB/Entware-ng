@@ -8,7 +8,7 @@
 
 include $(TOPDIR)/rules.mk
 PKG_NAME:=toolchain
-PKG_RELEASE:=8
+PKG_RELEASE:=9
 
 ifeq ($(CONFIG_USE_GLIBC),y)
         PKG_RELEASE=9
