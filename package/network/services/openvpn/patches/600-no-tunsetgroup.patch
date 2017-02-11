@@ -1,0 +1,18 @@
+--- a/src/openvpn/tun.c
++++ b/src/openvpn/tun.c
+@@ -2074,6 +2074,7 @@
+         }
+     }
+     if (groupname != NULL)
++#ifdef TUNSETGROUP
+     {
+         struct platform_state_group platform_state_group;
+ 
+@@ -2086,6 +2087,7 @@
+             msg(M_ERR, "Cannot ioctl TUNSETOWNER(%s) %s", groupname, dev);
+         }
+     }
++#endif
+     close_tun(tt);
+     msg(M_INFO, "Persist state set to: %s", (persist_mode ? "ON" : "OFF"));
+ }
