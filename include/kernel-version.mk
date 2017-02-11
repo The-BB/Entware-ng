@@ -2,7 +2,7 @@
 
 LINUX_RELEASE?=1
 
-LINUX_VERSION-2.6 = .22-tc
+LINUX_VERSION-2.6.22 = -tc
 
 ifdef KERNEL_PATCHVER
   LINUX_VERSION:=$(KERNEL_PATCHVER)$(strip $(LINUX_VERSION-$(KERNEL_PATCHVER)))
@@ -15,5 +15,5 @@ KERNEL=$(call merge_version,$(wordlist 1,2,$(call split_version,$(KERNEL_BASE)))
 KERNEL_PATCHVER ?= $(KERNEL)
 
 # disable the md5sum check for unknown kernel versions
-LINUX_KERNEL_MD5SUM:=$(LINUX_KERNEL_MD5SUM-$(strip $(LINUX_VERSION)))
-LINUX_KERNEL_MD5SUM?=x
+LINUX_KERNEL_HASH:=$(LINUX_KERNEL_HASH-$(strip $(LINUX_VERSION)))
+LINUX_KERNEL_HASH?=x
