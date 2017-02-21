@@ -4,18 +4,19 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
+# Downgraded from 1.26.2, which suffers from several critical bugs
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=busybox
 PKG_VERSION:=1.25.1
-PKG_RELEASE:=2
+PKG_RELEASE:=2a
 PKG_FLAGS:=essential
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://www.busybox.net/downloads \
 		http://sources.buildroot.net
-PKG_HASH:=27667e0f2328fdbd79cfd622e4453e5c57e58f781c5da97c9be337d93aa2a02e
+PKG_MD5SUM:=4f4c5de50b479b11ff636d7d8eb902a2
 
 PKG_BUILD_DEPENDS:=BUSYBOX_CONFIG_PAM:libpam
 PKG_BUILD_PARALLEL:=1
