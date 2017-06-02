@@ -31,8 +31,8 @@ tools-$(CONFIG_TARGET_keenbe) += keen-kernel.be
 tools-$(CONFIG_TARGET_mipselsf) += wl500g-kernel
 tools-y += lzma
 tools-$(BUILD_ISL) += isl
-tools-$(CONFIG_INSTALL_GCCGO) += go-src
-tools-$(CONFIG_INSTALL_GCCGO) += go-bootstrap
+tools-y += go-src
+tools-y += go-bootstrap
 
 # builddir dependencies
 $(curdir)/bison/compile := $(curdir)/flex/compile
