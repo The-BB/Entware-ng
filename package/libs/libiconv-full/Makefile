@@ -52,7 +52,7 @@ define Package/iconv
   TITLE+= utility
 endef
 
-TARGET_CFLAGS += $(FPIC) -DUSE_DOS
+TARGET_CFLAGS += -std=gnu89 $(FPIC) -DUSE_DOS
 
 CONFIGURE_ARGS += \
 	--enable-shared \
