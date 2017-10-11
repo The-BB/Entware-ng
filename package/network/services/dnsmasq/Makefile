@@ -4,16 +4,17 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
+#XXX
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dnsmasq
-PKG_VERSION:=2.77rc5
-PKG_RELEASE:=2
+PKG_VERSION:=2.78
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=http://thekelleys.org.uk/dnsmasq/release-candidates
-PKG_HASH:=d9447e9307234c4818ca0e0d9818e1d62da65eaf32ee37ea9bdc47c82068f560
+PKG_SOURCE_URL:=http://thekelleys.org.uk/dnsmasq/
+PKG_HASH:=89949f438c74b0c7543f06689c319484bd126cc4b1f8c745c742ab397681252b
 
 PKG_LICENSE:=GPL-2.0
 PKG_LICENSE_FILES:=COPYING
@@ -47,14 +48,14 @@ endef
 define Package/dnsmasq-dhcpv6
 $(call Package/dnsmasq/Default)
   TITLE += (with DHCPv6 support)
-  DEPENDS:=@IPV6
+  DEPENDS+=@IPV6
   VARIANT:=dhcpv6
 endef
 
 define Package/dnsmasq-full
 $(call Package/dnsmasq/Default)
   TITLE += (with DNSSEC, DHCPv6, Auth DNS, IPset, Conntrack, NO_ID enabled by default)
-  DEPENDS:=+PACKAGE_dnsmasq_full_dnssec:libnettle \
+  DEPENDS+=+PACKAGE_dnsmasq_full_dnssec:libnettle \
 	+PACKAGE_dnsmasq_full_conntrack:libnetfilter-conntrack
   VARIANT:=full
 endef
@@ -134,7 +135,7 @@ endif
 
 MAKE_FLAGS := \
 	$(TARGET_CONFIGURE_OPTS) \
-	CFLAGS="$(TARGET_CFLAGS)" \
+	CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \
 	LDFLAGS="$(TARGET_LDFLAGS)" \
 	COPTS="-DNO_INOTIFY $(COPTS)" \
 	PREFIX="/opt"

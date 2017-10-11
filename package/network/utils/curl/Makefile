@@ -8,15 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=curl
-PKG_VERSION:=7.54.0
-PKG_RELEASE:=1
+PKG_VERSION:=7.55.1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://dl.uxnr.de/mirror/curl/ \
 	http://curl.mirror.anstey.ca/ \
 	http://curl.askapache.com/download/ \
 	https://curl.haxx.se/download/
-PKG_HASH:=f50ebaf43c507fa7cc32be4b8108fa8bbd0f5022e90794388f3c7694a302ff06
+PKG_HASH:=e5b1a92ed3b0c11f149886458fa063419500819f1610c020d62f25b8e4b16cfb
 
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
@@ -53,6 +53,7 @@ PKG_CONFIG_DEPENDS:= \
   CONFIG_LIBCURL_SMTP \
   CONFIG_LIBCURL_TELNET \
   CONFIG_LIBCURL_TFTP \
+  CONFIG_LIBCURL_NGHTTP2 \
   \
   CONFIG_LIBCURL_COOKIES \
   CONFIG_LIBCURL_CRYPTO_AUTH \
@@ -86,6 +87,7 @@ define Package/libcurl
   CATEGORY:=Libraries
   DEPENDS:= +LIBCURL_CYASSL:libcyassl +LIBCURL_OPENSSL:libopenssl +LIBCURL_GNUTLS:libgnutls +LIBCURL_MBEDTLS:libmbedtls
   DEPENDS += +LIBCURL_ZLIB:zlib +LIBCURL_THREADED_RESOLVER:libpthread +LIBCURL_LDAP:libopenldap +LIBCURL_LIBIDN:libidn +LIBCURL_SSH2:libssh2
+  DEPENDS += +LIBCURL_SSH2:libssh2 +LIBCURL_NGHTTP2:libnghttp2
   TITLE:=A client-side URL transfer library
   MENU:=1
 endef
@@ -119,6 +121,7 @@ CONFIGURE_ARGS += \
 	$(if $(CONFIG_LIBCURL_LIBIDN),--with-libidn="$(STAGING_DIR)/opt",--without-libidn) \
 	$(if $(CONFIG_LIBCURL_SSH2),--with-libssh2="$(STAGING_DIR)/opt",--without-libssh2) \
 	$(if $(CONFIG_LIBCURL_ZLIB),--with-zlib="$(STAGING_DIR)/opt",--without-zlib) \
+	$(if $(CONFIG_LIBCURL_NGHTTP2),--with-nghttp2="$(STAGING_DIR)/opy",--without-nghttp2) \
 	\
 	$(call autoconf_bool,CONFIG_LIBCURL_DICT,dict) \
 	$(call autoconf_bool,CONFIG_LIBCURL_FILE,file) \

@@ -31,6 +31,8 @@ proto_3g_setup() {
 	json_get_var dialnumber dialnumber
 
 	[ -n "$dat_device" ] && device=$dat_device
+
+	device="$(readlink -f $device)"
 	[ -e "$device" ] || {
 		proto_set_available "$interface" 0
 		return 1
@@ -107,4 +109,4 @@ proto_3g_teardown() {
 	proto_kill_command "$interface"
 }
 
-[ -z "NOT_INCLUDED" ] || add_protocol 3g
+[ -z "$NOT_INCLUDED" ] || add_protocol 3g

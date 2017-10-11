@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=comgt
 PKG_VERSION:=0.32
-PKG_RELEASE:=29
+PKG_RELEASE:=30
 
 PKG_SOURCE:=$(PKG_NAME).$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=@SF/comgt
@@ -34,7 +34,7 @@ endef
 define Package/comgt
 $(call Package/comgt/Default)
   TITLE:=Option/Vodafone 3G/GPRS control tool
-  DEPENDS:=
+  DEPENDS:=+chat
   URL:=http://manpages.ubuntu.com/manpages/trusty/man1/comgt.1.html
 endef
 

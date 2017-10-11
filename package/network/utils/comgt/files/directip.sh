@@ -27,6 +27,7 @@ proto_directip_setup() {
 
 	[ -n "$ctl_device" ] && device=$ctl_device
 
+	device="$(readlink -f $device)"
 	[ -e "$device" ] || {
 		proto_notify_error "$interface" NO_DEVICE
 		proto_set_available "$interface" 0
@@ -43,8 +44,7 @@ proto_directip_setup() {
 		return 1
 	}
 
-	cardinfo=$(gcom -d "$device" -s /etc/gcom/getcardinfo.gcom)
-	[ -n $(echo "$cardinfo" | grep -q "Sierra Wireless") ] || {
+	gcom -d "$device" -s /etc/gcom/getcardinfo.gcom | grep -q "Sierra Wireless" || {
 		proto_notify_error "$interface" BAD_DEVICE
 		proto_block_restart "$interface"
 		return 1
