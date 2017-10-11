@@ -4,7 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-# Downgraded from 1.26.2, which suffers from several critical bugs
+#XXX Downgraded from 1.27.2
 
 include $(TOPDIR)/rules.mk
 
